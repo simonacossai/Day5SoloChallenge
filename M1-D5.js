@@ -50,23 +50,38 @@ Me.skills= ["C++", "Javascript", "Phyton"];
    Programmatically remove the last skill from the array "skills" inside of the "me" object
 */
 Me.skills.pop();
-console.log(Me);
 
 
 // JS Functions
 /* Ex.1
     Write the function Dice that randomize an integer number between 1 and 6
 */
+const Dice =()=>{
+  let randomNumber= Math.round(Math.random()*5)+1;
+  return randomNumber;
+}
 
 /* Ex.2 
     Write the function WhoIsBigger that receives 2 numbers and returns the bigger of the 2
 */
+const WhoIsBigger=(N, M)=>{
+  if(N>M){
+    return N;
+  }else{
+    return M;
+  }
+}
 
 /* Ex.3
     Write the function SplitMe that receives a String and returns an array with every word in that string
     Ex. SplitMe("I love coding") => returns [ "I","Love","Coding"]
 */
-
+const SplitMe=(sentence)=>{
+    let stringArray=[];
+    stringArray= sentence.split(" ");
+    return stringArray;
+}
+console.log(SplitMe("hi how are you"));
 /* Ex.4
     Write the function DeleteOne that receives a string and a boolean. If the boolean is true, should return the string without the first letter, otherwise should remove the last one
 */
