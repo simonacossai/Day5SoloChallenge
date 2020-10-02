@@ -81,23 +81,46 @@ const SplitMe=(sentence)=>{
     stringArray= sentence.split(" ");
     return stringArray;
 }
-console.log(SplitMe("hi how are you"));
+console.log(SplitMe("I love coding"));
+
 /* Ex.4
     Write the function DeleteOne that receives a string and a boolean. If the boolean is true, should return the string without the first letter, otherwise should remove the last one
 */
+const DeleteOne=(word, condition)=>{
+    if(condition===true){
+      return word.substring(1);
+    }else{
+      return word.slice(0, -1)
+    }
+}
+console.log(DeleteOne("Array", 2>3));
 
 /* Ex.5
    Write the function OnlyLetters that receives a string, removes all the numbers and returns it.
    Ex.: OnlyLetters("I love 123 whatever")  => returns "I love whatever"
 */
 
+//use regex
+const OnlyLetters=(word)=>{
+  return word.replace(/[0-9]/g, '');
+}
+console.log(OnlyLetters("I love 123 whatever"));
+
+
 /* Ex.6 
    Write the function IsThisAnEmail that receives a string and returns true if the string is a valid email.
 */
 
+const IsThisAnEmail=(email)=> {
+  const re =  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  return re.test(email);
+}
+console.log(IsThisAnEmail("cossaisimona@gmail.com"));
+
 /* Ex.7
    Write the function WhatDayIsIt that should return the day of the week
 */
+
 
 /* Ex.8
     Write the function RollTheDices that receives a numeric input and returns an object that contains both the sum of the value of the dices and the dices itself
