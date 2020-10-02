@@ -120,6 +120,27 @@ console.log(IsThisAnEmail("cossaisimona@gmail.com"));
 /* Ex.7
    Write the function WhatDayIsIt that should return the day of the week
 */
+const WhatDayIsIt=()=>{
+  const day= new Date();
+  day.setDate(day.getDate()+7);
+  var dayOfTheWeek=day.toLocaleDateString();
+  return dayOfTheWeek;
+}
+//console.log(WhatDayIsIt());
+
+//if i want to display the name of the week day instead
+
+let daysNames = ["Sunday","Monday", "Tuesday", "Wednesday", 
+"Thursday", "Friday", "Saturday"];
+
+const WhatDayIsIt2=()=>{
+var myDate = new Date();
+myDate.setDate(myDate.getDate());
+var currentDate = myDate.getDate();
+var currentDay  = myDate.getDay();
+return (daysNames[currentDay]);
+}
+//console.log(WhatDayIsIt2());
 
 
 /* Ex.8
