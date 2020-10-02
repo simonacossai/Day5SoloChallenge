@@ -122,11 +122,11 @@ console.log(IsThisAnEmail("cossaisimona@gmail.com"));
 */
 const WhatDayIsIt=()=>{
   const day= new Date();
-  day.setDate(day.getDate()+7);
+  day.setDate(day.getDate());
   var dayOfTheWeek=day.toLocaleDateString();
   return dayOfTheWeek;
 }
-//console.log(WhatDayIsIt());
+console.log(WhatDayIsIt());
 
 //if i want to display the name of the week day instead
 
@@ -140,7 +140,7 @@ var currentDate = myDate.getDate();
 var currentDay  = myDate.getDay();
 return (daysNames[currentDay]);
 }
-//console.log(WhatDayIsIt2());
+console.log(WhatDayIsIt2());
 
 
 /* Ex.8
@@ -151,14 +151,52 @@ return (daysNames[currentDay]);
         values: [ 3, 3, 4]
     }
 */
+const RollTheDices=(input)=>{
+  let randomNumbers=[];
+  let sum;
+  for(let i=0; i<input; i++){
+     randomNumbers[i]= Math.round(Math.random()*5)+1;
+  }
+  sum = randomNumbers.reduce((a,b) => a + b, 0)
+  let resultObject={}
+  resultObject.sum = sum;
+  resultObject.values = [randomNumbers];
+  return resultObject;
+}
+console.log(RollTheDices(4));
 
 /* Ex.9
    Write the function HowManyDays that receives a Date and return the number of days that has passed since that day.
 */
 
+const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+
+function HowManyDays(a) {
+  // Discard the time and time-zone information.
+  const day1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  const day2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+  return Math.floor((day2 - day1) / _MS_PER_DAY); 
+}
+a = new Date("2019-10-2")
+const b = new Date();
+console.log(HowManyDays(a));
+
 /* Ex.10
    Write the function IsTodayMyBDay that returns true if it's your birthday, false otherwise
 */
+const IsTodayMyBDay=()=>{
+  const birthday= "2020-08-09";
+  const day= new Date();
+  day.setDate(day.getDate());
+  var dayOfTheWeek=day.toLocaleDateString();
+  if(dayOfTheWeek===birthday){
+    return true
+  }else{
+    return false
+  }
+}
+console.log(IsTodayMyBDay());
+
 
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of the file
