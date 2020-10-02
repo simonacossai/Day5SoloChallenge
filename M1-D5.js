@@ -327,27 +327,70 @@ const DeleteProp=(i, word)=>{
     return "this film doesn't exist in the array"
   }
 }
-console.log(DeleteProp(0, "Year"));
+//console.log(DeleteProp(0, "Year"));
+
 
 /* Ex.12 
     Write the function OlderMovie that finds the older movie in the array
 */
+const OlderMovie=()=>{
+  let max;
+  for(let i=0; i<movies.length; i++){
+  if (movies[i]["Year"] < max) {
+      max = movies[i]["Year"];
+    }
+    return max;
+  };
+}
+console.log(OlderMovie());
+
 
 /* Ex.13
     Write the function CountMovies that returns the number of movies into the array
 */
+const CountMovies=()=>{
+  let total= movies.length;
+  return total;
+}
+console.log(CountMovies());
 
 /* Ex.14
     Write the function OnlyTitles that creates an array with only the titles of the movies
 */
+const OnlyTitles=()=>{
+  let myArray=[];
+  for(let i=0; i<movies.length; i++){
+    myArray.push(movies[i]["Title"]);
+  }
+  return myArray;
+}
+console.log(OnlyTitles());
 
 /* Ex.15
    Write the function OnlyThisMillennium that returns only the movies produced in this millennium
 */
+const OnlyThisMillennium=()=>{
+  for(let i=0; i<movies.length; i++){
+    let min = "2000"
+    if(movies[i]["Year"]< min)
+     movies[i].splice(1)
+    return movies;
+  }
+}
+console.log(OnlyThisMillennium());
+
 
 /* Ex.16 
     Write the function GetMovieById that receives an ID and returns the movie with the given ID
 */
+const GetMovieById=(ID)=>{
+  for(let i=0; i<movies.length; i++){
+    if((movies[i]["imdbID"])===ID){
+      return movies[i];
+    }
+  }
+}
+console.log(GetMovieById("tt4154756"))
 
 /* Ex.17
     Write the function SumYears that returns the sum of the years the movie has been produced
@@ -364,7 +407,17 @@ console.log(DeleteProp(0, "Year"));
 /* Ex.20
    Write the function DeleteX that receives a number and returns an array without the element in that position
 */
-
+const DeleteX=(number)=>{
+  for(let i=0; i<movies.length; i++){
+    if(number===movies[i]){
+      movies[i].splice(1)
+    }else{
+      "number isnt' present"
+    }
+  }
+  return movies;
+}
+//console.log(DeleteX(0));
 // JS Advanced
 
 /* Ex.21
@@ -375,6 +428,15 @@ console.log(DeleteProp(0, "Year"));
   **
   ***
 */
+const HalfTree=(height)=>{
+  let num = "";
+for(var i=1; i<=height; i++)
+{
+  num = num + "*"
+  console.log(num);
+}  
+}
+console.log(HalfTree(6));
 
 /* Ex.22 
   Create a function Tree that receives the height and creates an "*" tree with that height
@@ -384,9 +446,31 @@ console.log(DeleteProp(0, "Year"));
    *** 
   *****
 */
-
+const Tree=(n)=>{
+  for (let i = 0; i < n; i++) { 
+    let str = ''; 
+    for (let j = 1; j < n-i; j++) { 
+      str = str + ' '; 
+    } 
+    for (let k = 1; k <= (2*i+1); k++) { 
+      str = str + '*'; 
+    } 
+    console.log(str); 
+  } 
+}
+console.log(Tree(6))
 /* Ex.23
   Create a function IsItPrime that receives a number and return true if the number is a prime number
 */
-
+const IsItPrime =(num)=>{
+  for(let x = 2; x < num; x++)
+  {
+    if(num % x === 0)
+    {
+      return false;
+    }
+  }
+  return true;  
+}
+console.log(IsItPrime(2));
 /* Movies array is an example array, used for the exs. Don't change it :)  */
